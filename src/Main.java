@@ -23,18 +23,32 @@ public class Main {
 			System.out.println("--------------------");
 			System.out.println("기능을 선택해 주세요!");
 			System.out.println("1.장바구니에 상품 담기 2.장바구니에 상품 뺴기 3.장바구니 목록 보기 4.종료");
-			int n = Integer.parseInt(br.readLine());
+			int n = 0;
+			try {
+				n = Integer.parseInt(br.readLine());
+			} catch (Exception e) {
+				System.out.println("올바른 입력이 아닙니다!");
+			}
 
 			if (n == 1) {
 				System.out.println("추가할 상품과 갯수를 입력해주세요");
 				System.out.println("예시) 우유 2");
 				String[] s = br.readLine().split(" ");
-				cart.addProduct(s[0], Integer.parseInt(s[1]));
+				try {
+					cart.addProduct(s[0], Integer.parseInt(s[1]));
+				} catch (Exception e) {
+					System.out.println("올바른 입력이 아닙니다!");
+				}
+
 			} else if (n == 2) {
 				System.out.println("추가할 상품과 갯수를 입력해주세요");
 				System.out.println("예시) 우유 2");
 				String[] s = br.readLine().split(" ");
-				cart.removeProduct(s[0], Integer.parseInt(s[1]));
+				try {
+					cart.removeProduct(s[0], Integer.parseInt(s[1]));
+				} catch (Exception e) {
+					System.out.println("올바른 입력이 아닙니다!");
+				}
 			} else if (n == 3)
 				cart.showItems();
 			else if (n == 4)
@@ -52,7 +66,7 @@ public class Main {
 			String line;
 
 			while ((line = br.readLine()) != null) {
-				String s[] = line.split(",");
+				String[] s = line.split(",");
 				Product product = new Product(s[0], Integer.parseInt(s[1]));
 				set.add(product);
 			}
