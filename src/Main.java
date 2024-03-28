@@ -41,7 +41,7 @@ public class Main {
 				}
 
 			} else if (n == 2) {
-				System.out.println("추가할 상품과 갯수를 입력해주세요");
+				System.out.println("제가할 상품과 갯수를 입력해주세요");
 				System.out.println("예시) 우유 2");
 				String[] s = br.readLine().split(" ");
 				try {
